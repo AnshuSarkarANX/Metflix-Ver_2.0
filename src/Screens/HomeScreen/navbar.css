@@ -1,0 +1,75 @@
+.nav{
+    position:fixed;
+    top:0;
+    padding: 2vh;
+    height: 5vh;
+    width: 100%;
+    z-index: 1;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+}
+.nav_black{
+    background-image: linear-gradient(0deg,rgb(17,17,17,0.95),rgb(17,17,17));
+}
+.navbar_container{
+display: flex;
+justify-content:space-between
+}
+.Logo{
+  height: 5vh;  
+  padding-left: 2vw;
+  cursor:pointer;
+  position: fixed;
+}
+.nav_right{ position: fixed;
+    display: inline-block ;
+right:0%;}
+.avatar{
+    height: 5vh;
+    border-radius: 4px;
+    cursor:pointer;
+    margin-right: 6vw;
+}
+.Search{
+    position: relative;
+    margin-right: -2.3vw;
+    height: 3vh;
+    transition-timing-function: cubic-bezier(0.79, -0.1, 1, 0.32);
+    transition: 0.2s;
+
+}
+.Search_container{
+ position: relative;
+ display: inline-block !important;
+ cursor: pointer;
+ top: -1vh;
+ margin-right: 6.5vw;
+}
+.Search_container_hide{
+    display: none;
+    transition-timing-function: ease-in;
+    
+}
+
+.Search_container:hover .Search_text{
+    opacity: 100%;
+    color: #FFF;
+    filter:drop-shadow(0 0 1px #FFFAE4);
+
+}
+.Search_container:hover .Search{
+    transform:scale(0);   
+    opacity: 50%;
+}
+
+.Search_text{  
+    position: relative;
+    height: 2vh;
+    z-index: 0;
+    top: -1vh;
+    color:#fff;
+    opacity: 0%;
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+    
+}

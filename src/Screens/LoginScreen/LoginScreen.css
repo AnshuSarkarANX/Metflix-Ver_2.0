@@ -1,0 +1,97 @@
+.LoginScreen{
+    position:inherit;
+    height: 100vh;
+    background: url("https://assets.nflxext.com/ffe/siteui/vlv3/d54727b4-2ad9-4e71-bb48-0899f55f103a/4ce96108-1f99-4476-ba90-af8b26d471e7/IN-en-20230220-popsignuptwoweeks-perspective_alpha_website_small.jpg") center no-repeat;
+    background-size: cover;
+}
+.LoginScreen_background { height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); 
+  background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,transparent 40%,transparent 75%,rgba(0,0,0,.8));
+
+}
+.LoginScreen_logo{  height: 5vh;  
+  padding-left: 2vw;
+  padding-top: 2vh;
+  cursor:pointer;
+  position: relative;
+  object-fit: contain;
+}
+
+.SignupButton{
+    right: 2vw;
+    position: fixed ;
+    padding: .5rem .8rem;
+    top: 2vh;
+    font-weight: 600;
+    background-color: #E50914;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.LoginScreen_body{
+  position: relative;
+  z-index: 1;
+  color: aliceblue;
+  top: 30vh;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  max-width: 623px;
+  
+  
+}
+@media only screen and (max-height: 767px) {
+  .LoginScreen_body{ top: 25vh;}
+}
+
+.LoginScreen_body >h1{
+  font-size: 3rem;
+  margin: 0.05rem;  
+  min-width: 450px;
+}
+.LoginScreen_body >h2{ font-weight: 400;
+
+margin: 0.5rem auto;}
+.LoginScreen_body >p{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.LoginScreen_input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+}
+.LoginScreen_input >form >input{
+  height:38px;
+  width: 200px;
+  outline-width: 0;
+  border: none;
+  padding:2px 7px 0;
+  margin: 0; 
+}
+.LoginScreen_Getstarted{ color:aliceblue;
+background-color: #E50914;
+border: none;
+height: 40px;
+width: 120px;
+font-weight: 400;
+font-size: 1.1rem;
+cursor: pointer;
+}
+.LoginScreen_Skip{
+color:aliceblue;
+background-color: #E50914;
+border: none;
+height: 35px;
+width: 150px;
+font-weight: 400;
+font-size: 1rem;
+cursor: pointer;
+border-radius: 2px;
+}
+.skipButton{
+  padding: 25px;
+}
