@@ -1,0 +1,11 @@
+.homescreen{
+    height: 100vh;
+    width: 100vw;
+    margin: 0%;
+}
+@media (max-width:500px) {
+    .homescreen{
+    width:100vw;
+    }
+    
+}
