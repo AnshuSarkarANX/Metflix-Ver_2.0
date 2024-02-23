@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import axios from "../../axios";
-import requests from "../../request";
+import { useEffect, useState } from "react";
+import Axios from "../../axios";
+import axios from "axios";
+import requests, { ApiKey } from "../../request";
 import "./banner.css";
 import Tmdb_logo from "./tmdb_logo.svg";
 
@@ -12,18 +13,33 @@ function truncate(str, n) {
 
 function Banner() {
   const [movie, setMovie] = useState([]);
+  const [Genre, setGenre] = useState([]);
   useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(requests.NetflixOriginals);
-      setMovie(
+    (async function fetchData() {
+      const request = await Axios.get(requests.NetflixOriginals);
+      setMovie(  
         request.data.results[
           Math.floor(Math.random() * (request.data.results.length - 1))
         ]
       );
-      return request;
-    }
-    fetchData();
+    })();
   }, []);
+  useEffect(() => {
+    (async function genre() {
+      const genre = {
+        method: "GET",
+        url: "https://api.themoviedb.org/3/tv/" + movie.id,
+        params: { language: "en-US" },
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDVmMGQ5MjMwMTQxYjkxNzAxODhkYTA0MTcwYzQ1NCIsInN1YiI6IjYzYTIwODVjY2U5OTdhMDBhMDQ5YWJhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PH0rVaaYoZQya41buZw1ccpu3omSZj3ghk_fAJBCVxE",
+        },
+      };
+      const reque = await axios(genre);
+      return setGenre(reque.data.genres);
+    })();
+  }, [movie]);
 
   return (
     <>
@@ -43,9 +59,16 @@ function Banner() {
             <button className="ButtonBanner">Play</button>
             <button className="ButtonBanner">Add to watch list</button>
             <p className="BannerDescription">{truncate(movie.overview, 150)}</p>
+            <div className="genreSection">
+              {Genre.map((genre) => (
+                <ul className="genre" key={genre.id}>
+                  {genre.name}
+                </ul>
+              ))}
+            </div>
           </div>
         </div>
-        <img className="tmdb_logo" src={Tmdb_logo} alt="tmdb_logo" /> 
+        <img className="tmdb_logo" src={Tmdb_logo} alt="tmdb_logo" />
         <div className="fade_bottom" />
       </header>
     </>
