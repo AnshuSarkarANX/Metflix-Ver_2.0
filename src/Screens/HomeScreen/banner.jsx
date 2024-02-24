@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Axios from "../../axios";
 import axios from "axios";
-import requests, { ApiKey } from "../../request";
+import requests from "../../request";
 import "./banner.css";
 import Tmdb_logo from "./tmdb_logo.svg";
 
@@ -38,6 +38,7 @@ function Banner() {
       };
       const reque = await axios(genre);
       return setGenre(reque.data.genres);
+      
     })();
   }, [movie]);
 
