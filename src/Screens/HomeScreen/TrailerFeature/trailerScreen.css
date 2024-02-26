@@ -1,0 +1,8 @@
+#root{
+    color: aliceblue;
+    display:flex;  
+}
+.trscreen{
+  justify-content: center;
+}
+.About{margin: 0 2vw 0;}
