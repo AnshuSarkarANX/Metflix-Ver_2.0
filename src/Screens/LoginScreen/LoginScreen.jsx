@@ -23,7 +23,7 @@ function LoginScreen() {
             <>
           <h1 className="">Unlimited movies, TV shows and more.</h1>
           <h2 className="">Watch anywhere. Cancel anytime.</h2>
-          <p className="">
+          <p className="m_Hide">
             Ready to watch? Enter your email to create or restart your
             membership.
           </p>

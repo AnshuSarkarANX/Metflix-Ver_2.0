@@ -1,16 +1,19 @@
 .LoginScreen{
     position:inherit;
     height: 100vh;
+    width: 100vw;
     background: url("https://assets.nflxext.com/ffe/siteui/vlv3/d54727b4-2ad9-4e71-bb48-0899f55f103a/4ce96108-1f99-4476-ba90-af8b26d471e7/IN-en-20230220-popsignuptwoweeks-perspective_alpha_website_small.jpg") center no-repeat;
     background-size: cover;
 }
-.LoginScreen_background { height: 100vh;
-  width: 100%;
+.LoginScreen_background { 
+  height: 100vh;
+  width: 100vw;
   background: rgba(0, 0, 0, 0.4); 
   background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,transparent 40%,transparent 75%,rgba(0,0,0,.8));
 
 }
-.LoginScreen_logo{  height: 5vh;  
+.LoginScreen_logo{ 
+  height: 5vh; 
   padding-left: 2vw;
   padding-top: 2vh;
   cursor:pointer;
@@ -45,15 +48,15 @@
 @media only screen and (max-height: 767px) {
   .LoginScreen_body{ top: 25vh;}
 }
-
 .LoginScreen_body >h1{
   font-size: 3rem;
   margin: 0.05rem;  
   min-width: 450px;
 }
-.LoginScreen_body >h2{ font-weight: 400;
-
-margin: 0.5rem auto;}
+.LoginScreen_body >h2{ 
+  font-weight: 400;
+  margin: 0.5rem auto;
+}
 .LoginScreen_body >p{
   font-size: 1.2rem;
   font-weight: 500;
@@ -72,14 +75,15 @@ margin: 0.5rem auto;}
   padding:2px 7px 0;
   margin: 0; 
 }
-.LoginScreen_Getstarted{ color:aliceblue;
-background-color: #E50914;
-border: none;
-height: 40px;
-width: 120px;
-font-weight: 400;
-font-size: 1.1rem;
-cursor: pointer;
+.LoginScreen_Getstarted{
+ color:aliceblue;
+ background-color: #E50914;
+ border: none;
+ height: 40px;
+ width: 120px;
+ font-weight: 400;
+ font-size: 1.1rem;
+ cursor: pointer;
 }
 .LoginScreen_Skip{
 color:aliceblue;
@@ -94,4 +98,34 @@ border-radius: 2px;
 }
 .skipButton{
   padding: 25px;
+}
+@media (max-width:550px) {
+  .LoginScreen_logo{
+       display: none;
+  }
+  .SignupButton{
+    display:none;
+  }
+  .LoginScreen_body{
+    max-width: 100vw;
+  }
+  .LoginScreen_body >h1{
+  font-size: 4vh;
+  margin: 2vh; 
+  min-width: 320px; 
+}
+.LoginScreen_body h2{
+  font-size: 2.2vh;
+  margin-bottom: 4vh;
+}
+.LoginScreen_input >form >input{
+  display: none;
+}
+.LoginScreen_Getstarted{
+  border-radius: 7px;
+}
+.LoginScreen_Skip{
+  border-radius: 7px;
+}
+  
 }
