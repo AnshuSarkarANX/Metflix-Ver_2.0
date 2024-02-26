@@ -1,10 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { FirebaseAPI } from "./request";
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCx6bJSvNAz1qmdXNABtjb9zqS7UeKkufo",
+  apiKey: FirebaseAPI,
   authDomain: "metflix2-0.firebaseapp.com",
   projectId: "metflix2-0",
   storageBucket: "metflix2-0.appspot.com",
