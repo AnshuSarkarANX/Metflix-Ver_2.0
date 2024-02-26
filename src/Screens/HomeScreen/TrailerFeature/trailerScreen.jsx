@@ -4,8 +4,6 @@ import "./trailerScreen.css"
 function TrailerScreen() {
    const location = useLocation();
    const {movie,video} = location.state;
-   console.log(movie);
-   console.log(video);
     return (
       <div className="trScreen">
         <div className="player">
