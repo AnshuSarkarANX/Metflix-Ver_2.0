@@ -4,7 +4,11 @@ height: 100%;
 margin: 0%;
 background-color: #111;
 }
-.Hide{display: none}
+@media (min-width:550px) {
+    .Hide{display: none}
+}
+
+
 @media (max-width:550px){
     .m_Hide{display: none}
 } 
