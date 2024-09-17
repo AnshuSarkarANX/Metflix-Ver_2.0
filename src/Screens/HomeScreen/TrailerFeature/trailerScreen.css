@@ -5,4 +5,20 @@
 .trscreen{
   justify-content: center;
 }
-.About{margin: 0 2vw 0;}
+.Blocker{
+  position: relative;
+  background-color:#111111;
+  padding: 0 2vw 0;
+  padding-top: 10vh;
+}
+.About{
+  position: relative;
+  margin-top:-10vh;
+}
+.SEE{
+  background-color: #111111;
+  border: none;
+ color: white;
+ font-weight: 600;
+ font-size: 1rem;
+}

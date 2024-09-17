@@ -3,12 +3,27 @@ width:100%;
 height: 100%;
 margin: 0%;
 background-color: #111;
+overflow-x: hidden;
+scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-track {
+  background:transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 @media (min-width:550px) {
-    .Hide{display: none}
+    .Hide{display: none !important}
 }
 
 
 @media (max-width:550px){
-    .m_Hide{display: none}
+    .m_Hide{display: none !important}
+
 } 

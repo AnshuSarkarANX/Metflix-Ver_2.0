@@ -1,12 +1,22 @@
+.wrapper {
+  position: relative; /* Contains the absolute positioning */
+  box-shadow: inset 0 0 4rem 4.5rem var(--color-background);
+}
 .banner{
     position: relative;
     color: white;
+    height: 70vh;
     margin: 0%;
     object-fit: contain;
 }
+.Bwrapper{
+    height: 72vh;
+}
 .BannerComponents{
-    padding:5rem;
-    padding-top: 12rem;
+    position: relative;
+    top: 55%;
+    left: 10vmax;
+   
 }
 .BannerTitle{
  font-size: 3rem;
@@ -22,18 +32,34 @@
     margin:0%;
     max-width: 360px;
 }
+.ButtonSection{
+    display: flex;
+    gap: 2rem;
+}
 .ButtonBanner{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
     cursor:pointer;
     color: white;
     outline: none;
     border: none;
     font-weight:700;
     border-radius: 0.2vw;
-    padding: 0.5rem 2rem;
-    margin-right: 1rem;
-    background-color: rgb(51,51,51,0.5);   
+    padding: .7rem 2rem; 
+    background-color: rgb(51,51,51,0.55);   
 }
-.ButtonBanner:hover{
+
+.play{
+    color: #111;
+    background-color: whitesmoke;
+}
+.play:hover{
+    color: white !important;
+    fill: white;
+    background-color: rgb(51,51,51,0.5) !important;
+}
+.ButtonBanner:hover {
     color: black;
     background-color: whitesmoke;
     transition: all 0.2s ease-in    ;
@@ -46,35 +72,75 @@
     filter: drop-shadow(0 0 3px black);
 }
 .fade_bottom{
-    height:1rem;
-    background-image:linear-gradient(180deg,transparent,rgba(37, 37, 37, 0.3),#111);
+    position: relative;
+    height:2rem;
+    margin-top:-0.5rem;
+    background-image:linear-gradient(180deg,transparent,rgba(37, 37, 37, 0.7),#111);
 }
-.genreSection{
-    display: none;
-}
+
 @media  (max-width:550px) {
-    .banner{
-        margin: 2vh;
-        border-radius: 1rem;
-        margin-top: 8vh;
+    .wrapper{
         height: 55vh;
     }
-  .fade_bottom{
-       display:none;
+    .banner{
+        position: relative;
+        height: 50vh;
+        border-radius: 1rem;
     }
-    .BannerDescription{
-        display: none;
+    .Bwrapper{
+        height: fit-content;
+        margin: 4vh 10vw;
+        border-radius: 1rem;
+        margin-top: 8vh;
+        outline: 1px solid rgba(255, 255, 255, 0.5); 
     }
-    .BannerTitle{
-        font-size: 3.5vh;
+    .mobile_ButtonGenre{
+        position: absolute;
+        width: 100%;
+        bottom: 0%;
+        border: none white;
+        backdrop-filter: blur(2px);
+        padding-bottom: 2vh;
+        border-radius: 0 0 1rem 1rem;   
+    }
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  scale:1;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4; /* Subtle transparency */
+}
+    .ButtonSection{
+        position: relative;
+        display: flex;
+        gap:2vw;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: -1vh;
+    }
+    .ButtonBanner{
+     height: 3.5vh;
+     padding: 0 8vw;
+     font-size: 0.75em;
+     border-radius: 0.4em;
     }
     .genreSection{
+        position: relative;
         display: flex;
-        align-items: end;
         flex-wrap: wrap;
+        font-size: 0.75em;
+        list-style-position: inside;
+        justify-content: center;
     }
     .genre{
-        filter: drop-shadow(0px 0px 3px black);
+        margin: 0 2em 0 -1em;
+        filter: drop-shadow(0px 0px 3px black); 
+    }
+    .genre:first-child{
+        list-style: none;
+        margin-right: 2em !important;
     }
     
 }

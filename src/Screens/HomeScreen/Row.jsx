@@ -5,11 +5,13 @@ import {useNavigate} from 'react-router-dom';
 import { ytKey1,ytKey2,ytKey3 } from "../../request";
 import "./Row.css"; 
 import YoutubePlayer from "./TrailerFeature/YoutubePlayer";
+import LoadingScreen from "../LoginScreen/LoadingScreen.jsx";
 const img_url = "https://image.tmdb.org/t/p/w300";
 
 function Row({ title, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
   const [video,setVideo] = useState(null);
+  const[loading,setLoading] = useState(true)
   let mouseOverTimeout;
   const Navigate = useNavigate();
   useEffect(() => {
@@ -19,12 +21,20 @@ function Row({ title, fetchUrl, isLargeRow }) {
     })()
   }, [fetchUrl]);
   async function trailer(query) { 
-    let request = {
-      method: "get",
-      url: `https://www.googleapis.com/youtube/v3/search?q=${query} netflix official trailer&part=snippet&videoDuration=short&type=video&maxResults=1&key=${ytKey2}`,
-    };
-    const response = await axios(request);
-    return response.data.items[0];
+    const apiKeys = [ytKey3, ytKey2, ytKey1];
+  for (const key of apiKeys) {
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/search?q=${query}+netflix+official+trailer&part=snippet&type=video&maxResults=1&key=${key}`
+      );
+
+      if (response.data.items[0]) {
+        return response.data.items[0];
+      }
+    } catch (error) {
+      console.error(`Error fetching trailer data with key:`, error.message);
+    }
+  }
    }
    const isMobileDevice = () =>{
     return /Mobi|Android/i.test(navigator.userAgent);
@@ -36,7 +46,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
            movie.original_name || movie.original_title
          );
          setVideo(response);
-    },1000)
+    },800)
    }
    const handleMouseOut = ()=>{
     clearTimeout(mouseOverTimeout);
@@ -52,16 +62,16 @@ function Row({ title, fetchUrl, isLargeRow }) {
   return (
     <div className="row">
       <h2 className="RowTitle">{title}</h2>
-      {video &&  (
-        <YoutubePlayer videoId={video.id.videoId} />
-      )}
+      <div className="PopUpPlayer">
+        {video && <YoutubePlayer videoId={video.id.videoId} />}
+      </div>
       <div className="row_posters">
         {movies.map((movie) => (
           <img
             key={movie.id}
             onMouseOver={isMobileDevice() ? null : () => handleMouseOver(movie)}
             onMouseOut={handleMouseOut}
-            onTouchStart={isMobileDevice()?() => handleTouchStart(movie):null}
+            onClick={isMobileDevice() ? () => handleTouchStart(movie) : null}
             className={`row_image ${isLargeRow && "row_imageLarge"}`}
             src={`${img_url}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
@@ -69,7 +79,9 @@ function Row({ title, fetchUrl, isLargeRow }) {
             alt={movie.original_title}
             draggable="false"
           />
-        ))}
+      )
+      
+        )}
       </div>
     </div>
   );

@@ -1,21 +1,25 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-restricted-globals */
-import { React, useState, useEffect } from "react";
+import React ,{  useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import search from "./search.svg";
 import "./navbar.css";
 
-function navbar() {
+
+function navbar({child}) {
   const [show, handleshow] = useState(false);
   const Navigate = useNavigate();
   const goHome = () => {
     window.history.replaceState(null, "", "/");
     Navigate("/");
   };
+ const renderChildren = ()=>
+ {
+  return React.cloneElement(child,{
+    show:{show}
+  });
+ }
+  const Navbar_transition = () => {window.scrollY > 400 ? handleshow(true) : handleshow(false);};
 
-  const Navbar_transition = () => {
-    window.scrollY > 400 ? handleshow(true) : handleshow(false);
-  };
   useEffect(() => {
     window.addEventListener("scroll", Navbar_transition);
     return () => removeEventListener("scroll", Navbar_transition);
@@ -24,18 +28,12 @@ function navbar() {
     <div className={`nav ${show && "nav_black"}`}>
       <div className="navbar_container">
         <img
-          onClick={() => goHome()}
+          onClick={goHome}
           className="Logo"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/800px-Logonetflix.png?20170904093427"
           alt="logo"
         />
         <div className="nav_right">
-          <p className={`Search_container_hide ${show && "Search_container"}`}>
-            <span>
-              <img className="Search" src={search} alt="Search" />
-            </span>
-            <span className="Search_text">Search</span>
-          </p>
           <img
             onClick={() => Navigate("/profilescreen")}
             className="avatar"
